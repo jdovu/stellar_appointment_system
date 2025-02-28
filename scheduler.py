@@ -7,6 +7,7 @@
 import zmq
 import json
 import database
+import datetime
 
 # Setup ZeroMQ server for handling appointment requests
 context = zmq.Context()

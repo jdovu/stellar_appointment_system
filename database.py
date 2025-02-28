@@ -74,8 +74,8 @@ def get_todays_appointments():
     today_date = datetime.now().strftime('%Y-%m-%d')
     conn = sqlite3.connect('appointments.db')
     c = conn.cursor()
-    c.execute('SELECT id, patient, time FROM appointments WHERE date = ?', (today_date,))
-    appointments = [{'id': row[0], 'patient': row[1], 'time': row[2]} for row in c.fetchall()]
+    c.execute('SELECT id, patient, date, time FROM appointments WHERE date = ?', (today_date,))
+    appointments = [{'id': row[0], 'patient': row[1], 'date': row[2], 'time': row[3]} for row in c.fetchall()]
     conn.close()
     return appointments
 
